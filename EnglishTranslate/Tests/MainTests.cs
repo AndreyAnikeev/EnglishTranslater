@@ -13,9 +13,9 @@ namespace Tests
         [Fact]
         public void test()
         {
-            DataProvider dataProvider = new DataProvider();
+            DataReader dataReader = new DataReader();
             var path = "MockData/DataFile.csv";
-//            dataProvider.ReadData( path );
+//            DataReader.ReadData( path );
         }
     }
 }

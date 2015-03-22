@@ -12,3 +12,6 @@ W:\visual_studio_projekts\EnglishTranslate\obj\Debug\EnglishTranslate.Properties
 W:\visual_studio_projekts\EnglishTranslate\obj\Debug\EnglishTranslate.csproj.GenerateResource.Cache
 W:\visual_studio_projekts\EnglishTranslate\obj\Debug\EnglishTranslate.exe
 W:\visual_studio_projekts\EnglishTranslate\obj\Debug\EnglishTranslate.pdb
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\bin\Debug\EnglishTranslate.exe.config
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\obj\Debug\EnglishTranslate.exe
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\obj\Debug\EnglishTranslate.pdb
