@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Common
 {
-    public class Constants
+    public static class Constants
     {
+        public const string EnglishIdentifier = "английский";
+        public const string RussianIdentifier = "русский";
     }
 }

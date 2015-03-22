@@ -49,11 +49,16 @@
     <Compile Include="DataAdapter.cs" />
     <Compile Include="DataConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{7815e1ee-b277-4a0a-977b-4f162b0f5482}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DA\DA.csproj">
       <Project>{7abcc48c-d65b-4668-9519-b9fcc120db11}</Project>
       <Name>DA</Name>

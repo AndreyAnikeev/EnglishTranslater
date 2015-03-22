@@ -1,0 +1,16 @@
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\BL.dll
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\BL.pdb
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\Common.dll
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\DA.dll
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\Ninject.dll
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\Ninject.Extensions.Conventions.dll
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\CsvHelper.dll
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\Common.pdb
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\DA.pdb
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\Ninject.xml
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\Ninject.Extensions.Conventions.xml
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\CsvHelper.pdb
+W:\visual_studio_projekts\EnglishTranslateApp\BL\bin\Debug\CsvHelper.xml
+W:\visual_studio_projekts\EnglishTranslateApp\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+W:\visual_studio_projekts\EnglishTranslateApp\BL\obj\Debug\BL.dll
+W:\visual_studio_projekts\EnglishTranslateApp\BL\obj\Debug\BL.pdb
