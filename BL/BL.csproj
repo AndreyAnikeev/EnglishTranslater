@@ -47,10 +47,17 @@
   <ItemGroup>
     <Compile Include="BLModule.cs" />
     <Compile Include="DataAdapter.cs" />
+    <Compile Include="DataConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DA\DA.csproj">
+      <Project>{7abcc48c-d65b-4668-9519-b9fcc120db11}</Project>
+      <Name>DA</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    public class DataAdapter
+    public interface IDataRecordAdapter
+    {
+    }
+
+    public class DataRecordAdapter : IDataRecordAdapter
     {
     }
 }
