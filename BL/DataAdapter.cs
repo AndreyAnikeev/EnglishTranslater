@@ -12,5 +12,16 @@ namespace BL
 
     public class DataRecordAdapter : IDataRecordAdapter
     {
+        private readonly IDataConverter _dataConverter;
+
+        public DataRecordAdapter(IDataConverter dataConverter)
+        {
+            _dataConverter = dataConverter;
+        }
+
+        public List<RecordEntity> GetRecords(string path)
+        {
+            return _dataConverter.ConvertDataToRecords(path);
+        } 
     }
 }
