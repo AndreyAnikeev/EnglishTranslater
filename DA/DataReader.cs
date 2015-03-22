@@ -9,12 +9,12 @@ using DA.Entities;
 
 namespace DA
 {
-    public interface IDataProvider
+    public interface IDataReader
     {
         List<RecordData> ReadDataFromFile(string path);
     }
 
-    public class DataProvider : IDataProvider
+    public class DataReader : IDataReader
     {
         public List<RecordData> ReadDataFromFile( string path )
         {
