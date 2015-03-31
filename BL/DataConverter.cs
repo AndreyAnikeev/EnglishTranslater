@@ -3,12 +3,13 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using Common;
 using DA;
+using DA.Entities;
 
 namespace BL
 {
     public interface IDataConverter
     {
-        List<RecordEntity> ConvertDataToRecords( string path );
+        List<RecordEntity> ConvertDataToRecords( List<RecordData> data );
     }
 
     public class DataConverter : IDataConverter
@@ -20,10 +21,9 @@ namespace BL
             _dataReader = dataReader;
         }
 
-        public List<RecordEntity> ConvertDataToRecords(string path)
+        public List<RecordEntity> ConvertDataToRecords(List<RecordData> data )
         {
             var result = new List<RecordEntity>();    
-            var data = _dataReader.ReadDataFromFile(path);
             if (data != null)
             {
                 result = data

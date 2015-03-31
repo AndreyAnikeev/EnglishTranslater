@@ -64,8 +64,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataConverterTest.cs" />
     <Compile Include="DataReaderTest.cs" />
-    <Compile Include="MainTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
