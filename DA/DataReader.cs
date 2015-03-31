@@ -23,6 +23,5 @@ namespace DA
             csv.Configuration.RegisterClassMap<RecordMap>();
             return csv.GetRecords<RecordData>().ToList();
         }
-        
     }
 }

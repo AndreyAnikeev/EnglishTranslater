@@ -8,6 +8,7 @@ namespace BL
 {
     public interface IDataRecordAdapter
     {
+        List<RecordEntity> GetRecords(string path);
     }
 
     public class DataRecordAdapter : IDataRecordAdapter

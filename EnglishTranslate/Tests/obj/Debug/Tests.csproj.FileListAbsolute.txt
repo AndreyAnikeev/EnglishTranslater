@@ -48,3 +48,11 @@ W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\N
 W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
 W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\obj\Debug\Tests.dll
 W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\obj\Debug\Tests.pdb
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\ApprovalTests.dll
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\ApprovalUtilities.dll
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\ApprovalUtilities.Net45.dll
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\Newtonsoft.Json.dll
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\ApprovalTests.xml
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\ApprovalUtilities.xml
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\ApprovalUtilities.Net45.xml
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\Newtonsoft.Json.xml
