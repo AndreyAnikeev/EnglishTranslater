@@ -67,6 +67,7 @@
     <Compile Include="DataConverterTest.cs" />
     <Compile Include="DataReaderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShufflerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MockData\DataFile.csv">

@@ -50,6 +50,7 @@
     <Compile Include="DataConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecordEntity.cs" />
+    <Compile Include="Shuffler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
