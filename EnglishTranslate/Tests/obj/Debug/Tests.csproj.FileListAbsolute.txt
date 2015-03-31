@@ -56,3 +56,5 @@ W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\A
 W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\ApprovalUtilities.xml
 W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\ApprovalUtilities.Net45.xml
 W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\Newtonsoft.Json.xml
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\BL.dll
+W:\visual_studio_projekts\EnglishTranslateApp\EnglishTranslate\Tests\bin\Debug\BL.pdb

@@ -14,11 +14,9 @@ namespace BL
 
     public class DataConverter : IDataConverter
     {
-        private readonly IDataReader _dataReader;
 
-        public DataConverter(IDataReader dataReader)
+        public DataConverter()
         {
-            _dataReader = dataReader;
         }
 
         public List<RecordEntity> ConvertDataToRecords(List<RecordData> data )
