@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DA;
 
 namespace BL
@@ -14,6 +10,12 @@ namespace BL
 
     public class DataRecordAdapter : IDataRecordAdapter
     {
+        public enum EnglishStates
+        {
+            FromEnglishToRussian,
+            FromRussionToEnglish
+        }
+
         private readonly IDataConverter _dataConverter;
         private readonly IDataReader _dataReader;
         private readonly IRecordCache _cache;
