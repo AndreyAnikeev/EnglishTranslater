@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace EnglishTranslate
 {
@@ -23,6 +24,12 @@ namespace EnglishTranslate
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click( object sender, RoutedEventArgs e )
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            Nullable<bool> result = dlg.ShowDialog();
         }
     }
 }
