@@ -24,12 +24,25 @@ namespace EnglishTranslate
         public MainWindow()
         {
             InitializeComponent();
+
+            ComboBoxState.ItemsSource = new List<string>
+            {
+                "Choose state",
+                Constants.EnglishState,
+                Constants.RussianState
+            };
         }
 
         private void Button_Click( object sender, RoutedEventArgs e )
         {
-            OpenFileDialog dlg = new OpenFileDialog();
-            Nullable<bool> result = dlg.ShowDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.DefaultExt = "*.csv";
+            bool? isShown = openFileDialog.ShowDialog();
+
+            if (isShown == true)
+            {
+                var path = openFileDialog.FileNames;
+            }
         }
     }
 }
