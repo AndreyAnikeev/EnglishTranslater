@@ -21,7 +21,7 @@ namespace EnglishTranslate
         private readonly IDataRecordAdapter _dataRecordAdapter;
         private readonly IShuffler _shuffler;
 
-        public MainWindow(IDataRecordAdapter dataRecordAdapter, IShuffler shuffler)
+        public MainWindow( IDataRecordAdapter dataRecordAdapter, IShuffler shuffler )
         {
             _dataRecordAdapter = dataRecordAdapter;
             _shuffler = shuffler;
@@ -36,20 +36,39 @@ namespace EnglishTranslate
             openFileDialog.DefaultExt = "*.csv";
             bool? isShown = openFileDialog.ShowDialog();
 
-            if (isShown != true) return;
+            if ( isShown != true )
+                return;
             var path = openFileDialog.FileName;
-            if (path != null)
+            if ( path != null )
             {
                 _records = _dataRecordAdapter.GetShuffleRecordList( path );
-                var shuffleRecords = _shuffler.ShuffleItems(_records);
+                var shuffleRecords = _shuffler.ShuffleItems( _records );
                 _englishWords = shuffleRecords.Select( item => item.EnglishWord ).ToList();
                 _russianWords = shuffleRecords.Select( item => item.RussianWord ).ToList();
                 TextBoxWord.Text = _englishWords.FirstOrDefault();
             }
             else
             {
-                MessageBox.Show("Can't get specified path!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show( "Can't get specified path!", "Error", MessageBoxButton.OK, MessageBoxImage.Error );
             }
+        }
+
+        private void ComboBoxState_SelectionChanged( object sender, System.Windows.Controls.SelectionChangedEventArgs e )
+        {
+            if (_englishWords == null || _russianWords == null) return;
+            if ( (string)ComboBoxState.SelectedValue == Constants.EnglishState )
+            {
+                TextBoxWord.Text = _englishWords.FirstOrDefault();
+            }
+            else if ( (string)ComboBoxState.SelectedValue == Constants.RussianState )
+            {
+                TextBoxWord.Text = _russianWords.FirstOrDefault();
+            }
+        }
+
+        private void ComboBoxTranslation_KeyUp( object sender, KeyEventArgs e )
+        {
+            var test = ComboBoxTranslation.Text;
         }
 
         private void Button_Check_Click( object sender, RoutedEventArgs e )
@@ -63,12 +82,7 @@ namespace EnglishTranslate
             {
                 Constants.EnglishState,
                 Constants.RussianState
-            };    
-        }
-
-        private void ComboBoxTranslation_KeyUp( object sender, KeyEventArgs e )
-        {
-            var test = ComboBoxTranslation.Text;
+            };
         }
     }
 }
