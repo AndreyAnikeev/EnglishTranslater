@@ -27,9 +27,6 @@ namespace EnglishTranslate
         {
             InitializeComponent();
             InitializeComboBoxState();
-            LeftListBox.Items.Add("test1"); 
-            LeftListBox.Items.Add("test1"); 
-            LeftListBox.Items.Add("test1"); 
 
         }
 
@@ -45,11 +42,8 @@ namespace EnglishTranslate
             }
         }
 
-        private void Button_Click_1( object sender, RoutedEventArgs e )
+        private void Button_Check_Click( object sender, RoutedEventArgs e )
         {
-            var test = LeftListBox.SelectedItem;
-//            LeftListBox.Ite
-            LeftListBox.Items.RemoveAt(1);
 
         }
 
