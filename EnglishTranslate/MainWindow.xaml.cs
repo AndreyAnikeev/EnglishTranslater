@@ -19,10 +19,12 @@ namespace EnglishTranslate
         private List<string> _russianWords;
 
         private readonly IDataRecordAdapter _dataRecordAdapter;
+        private readonly IShuffler _shuffler;
 
-        public MainWindow(IDataRecordAdapter dataRecordAdapter)
+        public MainWindow(IDataRecordAdapter dataRecordAdapter, IShuffler shuffler)
         {
             _dataRecordAdapter = dataRecordAdapter;
+            _shuffler = shuffler;
             InitializeComponent();
             InitializeComboBoxState();
 
@@ -39,8 +41,10 @@ namespace EnglishTranslate
             if (path != null)
             {
                 _records = _dataRecordAdapter.GetShuffleRecordList( path );
-                _englishWords = _records.Select(item => item.EnglishWord).ToList();
-                _russianWords = _records.Select(item => item.RussianWord).ToList();
+                var shuffleRecords = _shuffler.ShuffleItems(_records);
+                _englishWords = shuffleRecords.Select( item => item.EnglishWord ).ToList();
+                _russianWords = shuffleRecords.Select( item => item.RussianWord ).ToList();
+                TextBoxWord.Text = _englishWords.FirstOrDefault();
             }
             else
             {
@@ -57,7 +61,6 @@ namespace EnglishTranslate
         {
             ComboBoxState.ItemsSource = new List<string>
             {
-                "Choose state",
                 Constants.EnglishState,
                 Constants.RussianState
             };    
