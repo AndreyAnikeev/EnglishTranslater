@@ -17,6 +17,7 @@ namespace EnglishTranslate
         private List<RecordEntity> _records;
         private List<string> _englishWords;
         private List<string> _russianWords;
+        private string  _state;
 
         private readonly IDataRecordAdapter _dataRecordAdapter;
         private readonly IShuffler _shuffler;
@@ -56,6 +57,7 @@ namespace EnglishTranslate
         private void ComboBoxState_SelectionChanged( object sender, System.Windows.Controls.SelectionChangedEventArgs e )
         {
             if (_englishWords == null || _russianWords == null) return;
+            _state = (string) ComboBoxState.SelectedValue;
             if ( (string)ComboBoxState.SelectedValue == Constants.EnglishState )
             {
                 TextBoxWord.Text = _englishWords.FirstOrDefault();
@@ -68,7 +70,18 @@ namespace EnglishTranslate
 
         private void ComboBoxTranslation_KeyUp( object sender, KeyEventArgs e )
         {
-            var test = ComboBoxTranslation.Text;
+            if (_state == Constants.EnglishState)
+            {
+                var template = ComboBoxTranslation.Text;
+                var wordSamples = _russianWords.Where(item => item.Contains(template)).ToList();
+                ComboBoxTranslation.ItemsSource = wordSamples;
+            }
+            else if ( _state == Constants.RussianState )
+            {
+                var template = ComboBoxTranslation.Text;
+                var wordSamples = _englishWords.Where( item => item.Contains( template ) ).ToList();
+                ComboBoxTranslation.ItemsSource = wordSamples;
+            }
         }
 
         private void Button_Check_Click( object sender, RoutedEventArgs e )
@@ -80,6 +93,7 @@ namespace EnglishTranslate
         {
             ComboBoxState.ItemsSource = new List<string>
             {
+                "Choose state",
                 Constants.EnglishState,
                 Constants.RussianState
             };
