@@ -14,7 +14,9 @@ namespace EnglishTranslate
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<RecordEntity> _records; 
+        private List<RecordEntity> _records;
+        private List<string> _englishWords;
+        private List<string> _russianWords;
 
         private readonly IDataRecordAdapter _dataRecordAdapter;
 
@@ -26,7 +28,7 @@ namespace EnglishTranslate
 
         }
 
-        private void Button_Click( object sender, RoutedEventArgs e )
+        private void Open_File_Button_Click( object sender, RoutedEventArgs e )
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.DefaultExt = "*.csv";
@@ -37,6 +39,8 @@ namespace EnglishTranslate
             if (path != null)
             {
                 _records = _dataRecordAdapter.GetShuffleRecordList( path );
+                _englishWords = _records.Select(item => item.EnglishWord).ToList();
+                _russianWords = _records.Select(item => item.RussianWord).ToList();
             }
             else
             {
