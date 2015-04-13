@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using BL;
@@ -13,6 +14,8 @@ namespace EnglishTranslate
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<RecordEntity> _records; 
+
         private readonly IDataRecordAdapter _dataRecordAdapter;
 
         public MainWindow(IDataRecordAdapter dataRecordAdapter)
@@ -29,12 +32,16 @@ namespace EnglishTranslate
             openFileDialog.DefaultExt = "*.csv";
             bool? isShown = openFileDialog.ShowDialog();
 
-            if (isShown == true)
+            if (isShown != true) return;
+            var path = openFileDialog.FileName;
+            if (path != null)
             {
-                var path = openFileDialog.FileNames;
-
+                _records = _dataRecordAdapter.GetShuffleRecordList( path );
             }
-
+            else
+            {
+                MessageBox.Show("Can't get specified path!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Button_Check_Click( object sender, RoutedEventArgs e )
