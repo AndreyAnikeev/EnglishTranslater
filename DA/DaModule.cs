@@ -3,7 +3,7 @@ using Ninject.Extensions.Conventions;
 
 namespace DA
 {
-    class DaModule: NinjectModule
+    public class DaModule: NinjectModule
     {
         public override void Load()
         {
