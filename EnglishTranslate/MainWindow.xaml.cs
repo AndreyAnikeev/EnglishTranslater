@@ -104,9 +104,17 @@ namespace EnglishTranslate
 
         private void Button_Check_Click( object sender, RoutedEventArgs e )
         {
+            var basicWord = TextBoxWord.Text;
+            var translation = (string)ComboBoxTranslation.SelectedValue;
             try
             {
-
+                var result = _translationChecker.CheckTranslation(basicWord,translation, _state);
+                if(!result.IsRight)
+                {
+                    var message = string.Format("Right translation {0}.", result.RightTranslation);
+                    MessageBox.Show(message, "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                UpdateTextBoxWord( basicWord );
             }
             catch (Exception ex)
             {
@@ -124,5 +132,19 @@ namespace EnglishTranslate
             };
         }
 
+        private void UpdateTextBoxWord(string checkedWord)
+        {
+            if (_state == TranslationState.FromEnglishToRussian.ToString())
+            {
+                var index = _englishWords.IndexOf(checkedWord);
+                TextBoxWord.Text = index != _englishWords.Count-1 ? _englishWords[index + 1] : "";
+            }
+
+            if ( _state == TranslationState.FromRussianToEnglish.ToString() )
+            {
+                var index = _russianWords.IndexOf( checkedWord );
+                TextBoxWord.Text = index != _russianWords.Count - 1 ? _russianWords[index + 1] : "";
+            }
+        }
     }
 }
