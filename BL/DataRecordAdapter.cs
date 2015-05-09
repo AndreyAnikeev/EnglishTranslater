@@ -12,14 +12,14 @@ namespace BL
     {
         private readonly IDataConverter _dataConverter;
         private readonly IDataReader _dataReader;
-        private readonly IRecordCache _cache;
+        private readonly IRecordRepository _repository;
         private readonly IShuffler _shuffler;
 
-        public DataRecordAdapter(IDataConverter dataConverter, IDataReader dataReader, IRecordCache cache, IShuffler shuffler)
+        public DataRecordAdapter(IDataConverter dataConverter, IDataReader dataReader, IRecordRepository repository, IShuffler shuffler)
         {
             _dataConverter = dataConverter;
             _dataReader = dataReader;
-            _cache = cache;
+            _repository = repository;
             _shuffler = shuffler;
         }
 
@@ -27,7 +27,7 @@ namespace BL
         {
             var data = _dataReader.ReadDataFromFile(path);
             var records = _dataConverter.ConvertDataToRecords( data );
-            _cache.RecordList = records;
+            _repository.RecordList = records;
             var result = _shuffler.ShuffleItems(records);
             return result;
         } 

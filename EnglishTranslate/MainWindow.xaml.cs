@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using BL;
+using Common;
 using Microsoft.Win32;
 
 namespace EnglishTranslate
@@ -66,15 +67,15 @@ namespace EnglishTranslate
             if ( _englishWords == null || _russianWords == null )
                 return;
             _state = (string)ComboBoxState.SelectedValue;
-            if ( (string)ComboBoxState.SelectedValue == Constants.EnglishState )
+            if ( _state == TranslationState.FromEnglishToRussian.ToString() )
             {
                 TextBoxWord.Text = _englishWords.FirstOrDefault();
             }
-            else if ( (string)ComboBoxState.SelectedValue == Constants.RussianState )
+            else if ( _state == TranslationState.FromRussianToEnglish.ToString() )
             {
                 TextBoxWord.Text = _russianWords.FirstOrDefault();
             }
-            if (_state != null)
+            else if (_state != null)
             {
                 ComboBoxTranslation.IsEnabled = true;
                 ButtonCheck.IsEnabled = true;
@@ -84,13 +85,13 @@ namespace EnglishTranslate
 
         private void ComboBoxTranslation_KeyUp( object sender, KeyEventArgs e )
         {
-            if ( _state == Constants.EnglishState )
+            if ( _state == TranslationState.FromEnglishToRussian.ToString() )
             {
                 var template = ComboBoxTranslation.Text;
                 var wordSamples = _russianWords.Where( item => item.Contains( template ) ).ToList();
                 ComboBoxTranslation.ItemsSource = wordSamples;
             }
-            else if ( _state == Constants.RussianState )
+            else if ( _state == TranslationState.FromRussianToEnglish.ToString() )
             {
                 var template = ComboBoxTranslation.Text;
                 var wordSamples = _englishWords.Where( item => item.Contains( template ) ).ToList();
@@ -101,6 +102,7 @@ namespace EnglishTranslate
 
         private void Button_Check_Click( object sender, RoutedEventArgs e )
         {
+
         }
 
         private void InitializeComboBoxState()
@@ -108,8 +110,8 @@ namespace EnglishTranslate
             ComboBoxState.ItemsSource = new List<string>
             {
                 "Choose state",
-                Constants.EnglishState,
-                Constants.RussianState
+                TranslationState.FromEnglishToRussian.ToString(),
+                TranslationState.FromRussianToEnglish.ToString()
             };
         }
 

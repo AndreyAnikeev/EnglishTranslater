@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Common
 {
+
+    public enum TranslationState
+    {
+        FromEnglishToRussian,
+        FromRussianToEnglish
+    }
+
     public static class Constants
     {
         public const string EnglishIdentifier = "английский";

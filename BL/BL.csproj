@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLModule.cs" />
-    <Compile Include="RecordCache.cs" />
+    <Compile Include="RecordRepository.cs" />
     <Compile Include="DataRecordAdapter.cs" />
     <Compile Include="DataConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

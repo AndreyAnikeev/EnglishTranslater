@@ -2,12 +2,12 @@
 
 namespace BL
 {
-    public interface IRecordCache
+    public interface IRecordRepository
     {
         List<RecordEntity> RecordList { get; set; }
     }
 
-    public class RecordCache : IRecordCache
+    public class RecordRepository : IRecordRepository
     {
         public List<RecordEntity> RecordList { get; set; }
     }
