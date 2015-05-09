@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows;
@@ -17,18 +19,17 @@ namespace EnglishTranslate
         private List<RecordEntity> _records;
         private List<string> _englishWords;
         private List<string> _russianWords;
-        private string  _state;
+        private string _state = Constants.EnglishState;
 
         private readonly IDataRecordAdapter _dataRecordAdapter;
         private readonly IShuffler _shuffler;
-
+        
         public MainWindow( IDataRecordAdapter dataRecordAdapter, IShuffler shuffler )
         {
             _dataRecordAdapter = dataRecordAdapter;
             _shuffler = shuffler;
             InitializeComponent();
             InitializeComboBoxState();
-
         }
 
         private void Open_File_Button_Click( object sender, RoutedEventArgs e )
@@ -56,8 +57,9 @@ namespace EnglishTranslate
 
         private void ComboBoxState_SelectionChanged( object sender, System.Windows.Controls.SelectionChangedEventArgs e )
         {
-            if (_englishWords == null || _russianWords == null) return;
-            _state = (string) ComboBoxState.SelectedValue;
+            if ( _englishWords == null || _russianWords == null )
+                return;
+            _state = (string)ComboBoxState.SelectedValue;
             if ( (string)ComboBoxState.SelectedValue == Constants.EnglishState )
             {
                 TextBoxWord.Text = _englishWords.FirstOrDefault();
@@ -70,10 +72,10 @@ namespace EnglishTranslate
 
         private void ComboBoxTranslation_KeyUp( object sender, KeyEventArgs e )
         {
-            if (_state == Constants.EnglishState)
+            if ( _state == Constants.EnglishState )
             {
                 var template = ComboBoxTranslation.Text;
-                var wordSamples = _russianWords.Where(item => item.Contains(template)).ToList();
+                var wordSamples = _russianWords.Where( item => item.Contains( template ) ).ToList();
                 ComboBoxTranslation.ItemsSource = wordSamples;
             }
             else if ( _state == Constants.RussianState )
@@ -82,11 +84,12 @@ namespace EnglishTranslate
                 var wordSamples = _englishWords.Where( item => item.Contains( template ) ).ToList();
                 ComboBoxTranslation.ItemsSource = wordSamples;
             }
+            ComboBoxTranslation.IsDropDownOpen = true;
+
         }
 
         private void Button_Check_Click( object sender, RoutedEventArgs e )
         {
-
         }
 
         private void InitializeComboBoxState()
@@ -97,6 +100,13 @@ namespace EnglishTranslate
                 Constants.EnglishState,
                 Constants.RussianState
             };
+        }
+
+        private void ComboBoxTranslation_GotFocus( object sender, RoutedEventArgs e )
+        {
+
+//            ComboBoxTranslation.IsDropDownOpen = true;
+
         }
     }
 }
