@@ -24,11 +24,13 @@ namespace EnglishTranslate
 
         private readonly IDataRecordAdapter _dataRecordAdapter;
         private readonly IShuffler _shuffler;
-        
-        public MainWindow( IDataRecordAdapter dataRecordAdapter, IShuffler shuffler )
+        private readonly ITranslationChecker _translationChecker;
+
+        public MainWindow( IDataRecordAdapter dataRecordAdapter, IShuffler shuffler, ITranslationChecker translationChecker)
         {
             _dataRecordAdapter = dataRecordAdapter;
             _shuffler = shuffler;
+            _translationChecker = translationChecker;
             InitializeComponent();
             InitializeComboBoxState();
             ComboBoxState.IsEnabled = false;
@@ -102,7 +104,14 @@ namespace EnglishTranslate
 
         private void Button_Check_Click( object sender, RoutedEventArgs e )
         {
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void InitializeComboBoxState()
