@@ -24,7 +24,7 @@ namespace EnglishTranslate
         private void ConfigureContainer()
         {
             this.container = new StandardKernel();
-            container.Load(new INinjectModule[]{new BLModule(), new DaModule()});
+            container.Load(new MainModule());
         }
 
         private void ComposeObjects()

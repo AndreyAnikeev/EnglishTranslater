@@ -77,12 +77,11 @@ namespace EnglishTranslate
             {
                 TextBoxWord.Text = _russianWords.FirstOrDefault();
             }
-            else if (_state != null)
-            {
-                ComboBoxTranslation.IsEnabled = true;
-                ButtonCheck.IsEnabled = true;
-                TextBoxWord.IsEnabled = true;
-            }
+
+            if (_state == null) return;
+            ComboBoxTranslation.IsEnabled = true;
+            ButtonCheck.IsEnabled = true;
+            TextBoxWord.IsEnabled = true;
         }
 
         private void ComboBoxTranslation_KeyUp( object sender, KeyEventArgs e )
@@ -115,6 +114,7 @@ namespace EnglishTranslate
                     MessageBox.Show(message, "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 UpdateTextBoxWord( basicWord );
+                ComboBoxTranslation.ItemsSource = new List<string>();
             }
             catch (Exception ex)
             {
