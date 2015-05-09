@@ -19,7 +19,7 @@ namespace EnglishTranslate
         private List<RecordEntity> _records;
         private List<string> _englishWords;
         private List<string> _russianWords;
-        private string _state = Constants.EnglishState;
+        private string _state;
 
         private readonly IDataRecordAdapter _dataRecordAdapter;
         private readonly IShuffler _shuffler;
@@ -30,6 +30,10 @@ namespace EnglishTranslate
             _shuffler = shuffler;
             InitializeComponent();
             InitializeComboBoxState();
+            ComboBoxState.IsEnabled = false;
+            ComboBoxTranslation.IsEnabled = false;
+            ButtonCheck.IsEnabled = false;
+            TextBoxWord.IsEnabled = false;
         }
 
         private void Open_File_Button_Click( object sender, RoutedEventArgs e )
@@ -43,6 +47,8 @@ namespace EnglishTranslate
             var path = openFileDialog.FileName;
             if ( path != null )
             {
+                ComboBoxState.IsEnabled = true;
+
                 _records = _dataRecordAdapter.GetShuffleRecordList( path );
                 var shuffleRecords = _shuffler.ShuffleItems( _records );
                 _englishWords = shuffleRecords.Select( item => item.EnglishWord ).ToList();
@@ -68,6 +74,12 @@ namespace EnglishTranslate
             {
                 TextBoxWord.Text = _russianWords.FirstOrDefault();
             }
+            if (_state != null)
+            {
+                ComboBoxTranslation.IsEnabled = true;
+                ButtonCheck.IsEnabled = true;
+                TextBoxWord.IsEnabled = true;
+            }
         }
 
         private void ComboBoxTranslation_KeyUp( object sender, KeyEventArgs e )
@@ -85,7 +97,6 @@ namespace EnglishTranslate
                 ComboBoxTranslation.ItemsSource = wordSamples;
             }
             ComboBoxTranslation.IsDropDownOpen = true;
-
         }
 
         private void Button_Check_Click( object sender, RoutedEventArgs e )
@@ -102,11 +113,5 @@ namespace EnglishTranslate
             };
         }
 
-        private void ComboBoxTranslation_GotFocus( object sender, RoutedEventArgs e )
-        {
-
-//            ComboBoxTranslation.IsDropDownOpen = true;
-
-        }
     }
 }
