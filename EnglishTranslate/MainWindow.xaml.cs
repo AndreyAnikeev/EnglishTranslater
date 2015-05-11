@@ -25,12 +25,14 @@ namespace EnglishTranslate
         private readonly IDataRecordAdapter _dataRecordAdapter;
         private readonly IShuffler _shuffler;
         private readonly ITranslationChecker _translationChecker;
+        private readonly IMarkGenerator _markGenerator;
 
-        public MainWindow( IDataRecordAdapter dataRecordAdapter, IShuffler shuffler, ITranslationChecker translationChecker)
+        public MainWindow( IDataRecordAdapter dataRecordAdapter, IShuffler shuffler, ITranslationChecker translationChecker,IMarkGenerator markGenerator)
         {
             _dataRecordAdapter = dataRecordAdapter;
             _shuffler = shuffler;
             _translationChecker = translationChecker;
+            _markGenerator = markGenerator;
             InitializeComponent();
             InitializeComboBoxState();
             ComboBoxState.IsEnabled = false;
@@ -54,6 +56,7 @@ namespace EnglishTranslate
 
                 _records = _dataRecordAdapter.GetShuffleRecordList( path );
                 var shuffleRecords = _shuffler.ShuffleItems( _records );
+                _markGenerator.RecordCount = _records.Count;
                 _englishWords = shuffleRecords.Select( item => item.EnglishWord ).ToList();
                 _russianWords = shuffleRecords.Select( item => item.RussianWord ).ToList();
                 TextBoxWord.Text = _englishWords.FirstOrDefault();
@@ -82,6 +85,7 @@ namespace EnglishTranslate
             ComboBoxTranslation.IsEnabled = true;
             ButtonCheck.IsEnabled = true;
             TextBoxWord.IsEnabled = true;
+
         }
 
         private void ComboBoxTranslation_KeyUp( object sender, KeyEventArgs e )
@@ -108,6 +112,7 @@ namespace EnglishTranslate
             try
             {
                 var result = _translationChecker.CheckTranslation(basicWord,translation, _state);
+                
                 if(!result.IsRight)
                 {
                     var message = string.Format("Right translation {0}.", result.RightTranslation);
@@ -115,6 +120,7 @@ namespace EnglishTranslate
                 }
                 UpdateTextBoxWord( basicWord );
                 ComboBoxTranslation.ItemsSource = new List<string>();
+                LabelMarkValue.Content = _markGenerator.GetMark(result.IsRight);
             }
             catch (Exception ex)
             {

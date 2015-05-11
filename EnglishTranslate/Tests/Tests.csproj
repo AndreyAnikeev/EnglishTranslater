@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="DataConverterTest.cs" />
     <Compile Include="DataReaderTest.cs" />
+    <Compile Include="MarkGeneratorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShufflerTest.cs" />
   </ItemGroup>
@@ -83,6 +84,10 @@
     <ProjectReference Include="..\..\DA\DA.csproj">
       <Project>{7abcc48c-d65b-4668-9519-b9fcc120db11}</Project>
       <Name>DA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnglishTranslate.csproj">
+      <Project>{d17f6942-bf2a-4816-bafd-0205b50cda9b}</Project>
+      <Name>EnglishTranslate</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

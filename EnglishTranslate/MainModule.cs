@@ -12,6 +12,7 @@ namespace EnglishTranslate
         {
             Kernel.Load(new INinjectModule[]{new BLModule(), new DaModule()});
             Kernel.Bind( x => x.FromThisAssembly().SelectAllClasses().BindAllInterfaces() );
+            Kernel.Rebind<IMarkGenerator>().To<MarkGenerator>().InSingletonScope();
         }
     }
 }

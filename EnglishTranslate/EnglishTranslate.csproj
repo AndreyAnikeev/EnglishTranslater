@@ -63,6 +63,7 @@
     </ApplicationDefinition>
     <Compile Include="CheckedResult.cs" />
     <Compile Include="MainModule.cs" />
+    <Compile Include="MarkGenerator.cs" />
     <Compile Include="TranslationChecker.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
