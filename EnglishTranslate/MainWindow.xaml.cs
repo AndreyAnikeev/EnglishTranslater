@@ -120,7 +120,7 @@ namespace EnglishTranslate
                 }
                 UpdateTextBoxWord( basicWord );
                 ComboBoxTranslation.ItemsSource = new List<string>();
-                LabelMarkValue.Content = _markGenerator.GetMark(result.IsRight);
+                LabelMarkValue.Content = result.IsRight;
             }
             catch (Exception ex)
             {
